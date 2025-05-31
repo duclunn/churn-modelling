@@ -1,0 +1,205 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  background-color: #006d90;
+  color: white;
+  padding: 25px 0;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  max-width: 1200px;
+  margin: auto;
+  
+}
+
+.form-container {
+  flex: 2;
+  
+}
+
+.form-container h3 {
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 24px; /* 👈 tăng cỡ chữ */
+}
+
+.result h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.form-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.form-group label {
+  width: 140px;
+  font-weight: bold;
+}
+
+input {
+  box-sizing: border-box;
+  width: 140px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  
+}
+input2 {
+  box-sizing: border-box;
+  width: 140px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  
+}
+select {
+  appearance: none;               /* Xóa giao diện mặc định */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 140px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #fff;
+
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23006d90' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #006d90;
+  box-shadow: 0 0 3px rgba(0, 109, 144, 0.5);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;          /* Chrome, Safari */
+  margin: 0;
+}
+.result {
+  flex: 1;
+  border-left: 2px solid black;
+  padding-left: 40px;
+  min-width: 250px;
+}
+
+.result p {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #006d90;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+button:hover {
+  background-color: #004d66;
+}
+/* Phần upload đặt rộng hết */
+.upload-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px dashed #006d90;
+  border-radius: 16px;
+}
+
+.upload-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.upload-container form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Khi màn hình nhỏ, vẫn responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .result {
+    border-left: none;
+    border-top: 2px solid black;
+    margin-top: 30px;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+  .upload-container {
+    margin: 20px;
+  }
+}
+
+code {
+  font-size: 14px; ;
+  font-family: monospace;
+}
+
+/* Kéo dài và làm đẹp nút chọn file */
+.upload-container input[type="file"] {
+  width: 100%;           /* chiếm 100% chiều ngang của .upload-container */
+  max-width: 400px;      /* giới hạn tối đa 400px */
+  padding: 10px;         /* cho đệm trong */
+  font-size: 16px;       /* tăng cỡ chữ cho rõ */
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Khi hover */
+.upload-container input[type="file"]:hover {
+  border-color: #006d90;
+  box-shadow: 0 0 4px rgba(0, 109, 144, 0.3);
+}
