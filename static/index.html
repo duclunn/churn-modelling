@@ -1,0 +1,119 @@
+<!-- static/index.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hệ thống dự đoán rời bỏ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>HỆ THỐNG DỰ ĐOÁN NGUY CƠ KHÁCH HÀNG NGỪNG SỬ DỤNG DỊCH VỤ</h2>
+
+  <!-- Phần chính: form + kết quả -->
+  <div class="container">
+    <!-- Form nhập liệu -->
+    <div class="form-container">
+      <h3>THÔNG TIN KHÁCH HÀNG</h3>
+      <form id="predictForm">
+        <div class="form-grid">
+          <!-- Cột 1 -->
+          <div class="column">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="geography">Geography:</label>
+              <select id="geography">
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Spain">Spain</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input type="number" id="age" required>
+            </div>
+          </div>
+          <!-- Cột 2 -->
+          <div class="column">
+            <div class="form-group">
+              <label for="creditScore">Credit Score:</label>
+              <input type="number" id="creditScore" required>
+            </div>
+            <div class="form-group">
+              <label for="isActive">Active:</label>
+              <select id="isActive">
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tenure">Tenure:</label>
+              <input type="number" id="tenure" required>
+            </div>
+            <div class="form-group">
+              <label for="balance">Balance:</label>
+              <input type="number" step="0.01" id="balance" required>
+            </div>
+            <div class="form-group">
+              <label for="numProducts">Number of Products:</label>
+              <input type="number" id="numProducts" required>
+            </div>
+            <div class="form-group">
+              <label for="creditCard">Credit Card:</label>
+              <select id="creditCard">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary:</label>
+              <input type="number" step="0.01" id="salary" required>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Kết quả dự đoán -->
+    <div class="result">
+      <h3>DỰ ĐOÁN</h3>
+      <p><strong>Xác suất rời bỏ:</strong> <span id="probability">--</span></p>
+      <p><strong>Kết luận:</strong> <span id="conclusion">--</span></p>
+    </div>
+  </div>
+
+  <!-- Phần Upload CSV hàng loạt -->
+  <div class="upload-container">
+    <h3>UPLOAD CSV</h3>
+    <p>File CSV phải có 13 cột: <code>RowNumber, CustomerId, Surname, CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary</code></p>
+    <form id="uploadForm">
+      <!-- Nút Choose File -->
+       
+      <input type="file" id="csvFileInput" name="file" accept=".csv" required>
+       <!-- NÚT XEM KẾT QUẢ sẽ xuất hiện sau khi upload thành công -->
+      <button type="button" id="viewBtn">Xem kết quả</button>
+      <!-- NÚT UPLOAD -->
+      <button type="button" id="uploadBtn">Tải về kết quả</button>
+      
+    </form>
+  </div>
+<!-- Phần hiển thị kết quả dự đoán CSV dưới cùng -->
+  <div class="table-container">
+    <h3>KẾT QUẢ DỰ ĐOÁN CSV</h3>
+    <div id="csvResultContainer">
+      <!-- Bảng kết quả sẽ được chèn vào đây -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
